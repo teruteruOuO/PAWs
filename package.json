@@ -1,0 +1,10 @@
+{
+    "scripts": {
+        "backend":"cd backend && npm start",
+        "frontend-dev":"cd frontend && npm run dev",
+        "frontend-build": "cd frontend && npm run build",
+        "frontend-prod": "cd frontend && npm run preview",
+        "backend-install":"cd backend && npm install",
+        "frontend-install":"cd frontend && npm install"
+    }
+}
