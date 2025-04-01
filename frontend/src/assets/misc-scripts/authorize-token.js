@@ -17,7 +17,7 @@ export const authorizeToken = async () => {
                 alert(err.response.data.message);
             }
 
-            console.error(err.response.data.message);
+            console.warn(err.response.data.message);
             user.resetUserStore();
         }
 

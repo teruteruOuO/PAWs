@@ -11,6 +11,7 @@ const router = express.Router();
 router.post('/login', async (req, res) => {
     try {
         let selectQuery;
+        let insertQuery;
         let resultQuery;
         let { username, password } = req.body;
         let userInformation = {
@@ -91,6 +92,11 @@ router.post('/login', async (req, res) => {
             maxAge: 10 * 1000 // 1 hour in milliseconds
         });
 
+        // Log user login activity
+        insertQuery = "INSERT INTO USER_ACTIVITY (USER_ID, ACT_DESC) VALUES (?, ?);";
+        resultQuery = await executeWriteQuery(insertQuery, [userInformation.id, `Logged in`]);
+        console.log(`Successfully recorded log in activity for ${userInformation.username}`);
+
         console.log(`${userInformation.username} is successfully logged in.`);
         res.status(200).json({
             message: `Login Successful`,
@@ -99,23 +105,38 @@ router.post('/login', async (req, res) => {
         return;
 
     } catch (err) {
-        console.error(`Error: A server error occured in /api/user/login POST`);
+        console.error(`Error: A server error occured in /api/user/login POST route.`);
         console.error(err);
         res.status(500).json({ message: 'A server error occured. Please contact the admin for further notice.' });
         return;
-
     }
 });
 
 // Logout route
-router.post('/logout', async (req, res) => {
+router.post('/logout/:user_id', async (req, res) => {
     console.log('Initalizing /api/user/logout POST route');
     res.clearCookie('token', {
         httpOnly: true,
         secure: true,
         sameSite: 'strict',
     });
-    
+
+    try {
+        let insertQuery;
+        let resultQuery;
+        let { user_id } = req.params;
+
+        // Log user logout activity
+        insertQuery = "INSERT INTO USER_ACTIVITY (USER_ID, ACT_DESC) VALUES (?, ?);";
+        resultQuery = await executeWriteQuery(insertQuery, [user_id, `Logged out`]);
+        console.log(`Successfully recorded log out activity for user #${user_id}`);
+        
+    } catch (err) {
+        console.error(`Error: A server error occured in /api/user/logout POST route. Logging user out without recording their log out activity`);
+        console.error(err);
+
+    }
+
     res.status(200).json({ message: 'Logout success' });
     return;
 });

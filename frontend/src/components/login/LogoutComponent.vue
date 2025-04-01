@@ -17,7 +17,7 @@ const user = useUserStore();
 const logoutUser = async () => {
     console.log(`Logging out user`);
 
-    const response = await axios.post('/api/user/logout');
+    const response = await axios.post(`/api/user/logout/${user.userID}`);
     console.log(response.data.message);
 
     user.resetUserStore();
