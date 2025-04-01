@@ -4,11 +4,14 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
-// Import routes
-import user from './routes/user.js';
-
 // Allow hidden backend variables (from .env) to be used in the application
 dotenv.config();
+
+// Disable logging during production
+import './utilities/mute-console.js';
+
+// Import routes
+import user from './routes/user.js';
 
 try {
     // Create an instance of an express application
@@ -37,5 +40,6 @@ try {
 } catch (err) {
     console.error(`Error: An error occured while starting the express server. Below is the error statement`);
     console.error(err);
+    
 }
 

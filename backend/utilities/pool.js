@@ -1,13 +1,15 @@
 // Import the mysql2 library
-import mysql from 'mysql2'
+import mysql from 'mysql2';
+import dotenv from 'dotenv';
+dotenv.config(); // This ensures environment variables are loaded
 
 // Create a connection pool
 const pool = mysql.createPool({
-    host: process.env.HOST,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE,
-    port: process.env.MYSQL_PORT,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
