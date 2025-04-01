@@ -80,7 +80,39 @@ const loginUser = async (req, res) => {
 </script>
 
 <style scoped>
+/* Phone Vertical */
 section {
-    background-color: bisque;
+    margin-block-start: 20px;
+}
+
+section * {
+    font-size: 2.5rem;
+}
+
+/* Force UL to take over FORM's precendece (FORM doesn't exist) */
+form {
+    display: contents;
+}
+
+ul {
+    /* Flex parent */
+    display: flex;
+    flex-direction: column;
+}
+
+ul > * {
+    text-align: center;
+}
+
+li:nth-child(2) *, li:nth-child(4) * {
+    font-size: 1.5625rem;   
+}
+
+li:nth-child(2), li:nth-child(4) {
+    margin-block-end: 10px;
+}
+
+input {
+    text-align: center;
 }
 </style>

@@ -1,0 +1,49 @@
+/* General Design */
+body {
+    background-color: #2A3652;
+    color: #FFCC4C;
+
+}
+
+input {
+    background-color: #FFCC4C;
+    border: 5px solid #F8545C;
+    border-radius: 25px;
+    max-inline-size: 264px;
+}
+
+button {
+    background-color: #F8545C;
+    border: 5px solid #FFCC4C;
+    color: white;
+    border-radius: 25px;
+    inline-size: 264px;
+}
+
+.feedback {
+    color: white;
+}
+
+a {
+    color:#FFCC4C;
+}
+
+a:link {
+    color:#FFCC4C;
+}
+
+a:visited {
+    color:#FFCC4C;
+}
+
+a:focus {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+a:active {
+    color: white;
+}

@@ -3,7 +3,7 @@
     <img 
     src="/images/smiling-cat.png" 
     alt="Smiling Cat Logo">
-    <h1 v-if="isPhone">PAWS IMS</h1>
+    <h1 v-if="isMobile">PAWS IMS</h1>
     <h1 v-else>Paws & Whiskers Inventory Management System</h1>
 </section> 
 </template>
@@ -18,7 +18,7 @@ const updateWidth = () => {
 };
 
 // Computed property for visibility based on width range
-const isPhone = computed(() => windowWidth.value <= 667);
+const isMobile = computed(() => windowWidth.value <= 1024);
 
 onMounted(() => {
     window.addEventListener('resize', updateWidth);
@@ -28,12 +28,29 @@ onUnmounted(() => window.removeEventListener('resize', updateWidth));
 </script>
 
 <style scoped>
-section {
-    background-color: aqua;
-}
+/* Phone Vertical */
+/* section {
+    background-color: purple;
+} */
 
 img {
     display: block;
+    inline-size: 314px;
+    block-size: 237px;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    /* background-color: rgb(252, 137, 252); */
 }
+
+h1 {
+    font-size: 4.0625rem;
+    /* background-color: rgb(255, 215, 255); */
+    text-align: center;
+}
+
+/* Phone Horizontal */
+/* @media screen and (min-width: 932px) {
+    
+} */
 </style>
 

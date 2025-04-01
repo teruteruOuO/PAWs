@@ -82,14 +82,14 @@ router.post('/login', async (req, res) => {
         if (!process.env.JWT_SECRET) {
             throw new Error('JWT_SECRET is not defined in the environment variables');
         }
-        token = jwt.sign({ userID: userInformation.id }, process.env.JWT_SECRET, { expiresIn: '10s' });
+        token = jwt.sign({ userID: userInformation.id }, process.env.JWT_SECRET, { expiresIn: '1hr' });
 
         // Set an http-only cookie using the provided token
         res.cookie('token', token, {
             httpOnly: true,
-            secure: true,
+            secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
-            maxAge: 10 * 1000 // 1 hour in milliseconds
+            maxAge: 60 * 1000 // 1 hour in milliseconds
         });
 
         // Log user login activity
@@ -117,7 +117,7 @@ router.post('/logout/:user_id', async (req, res) => {
     console.log('Initalizing /api/user/logout POST route');
     res.clearCookie('token', {
         httpOnly: true,
-        secure: true,
+        secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict',
     });
 
