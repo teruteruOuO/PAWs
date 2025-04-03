@@ -3,7 +3,8 @@
         "backend":"cd backend && npm start",
         "frontend-dev":"cd frontend && npm run dev",
         "frontend-build": "cd frontend && npm run build",
-        "frontend-prod": "cd frontend && npm run preview",
+        "frontend-prod": "cd frontend && npm run build && npm run preview",
+        "frontend-network": "cd frontend && npm run build && serve dist -l 1989",
         "backend-install":"cd backend && npm install",
         "frontend-install":"cd frontend && npm install"
     }

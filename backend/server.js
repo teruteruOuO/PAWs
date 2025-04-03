@@ -19,7 +19,7 @@ try {
 
     // Add cors header to the server (Only allows certain websites to use this backend server)
     const corsOption = {
-        origin: process.env.FRONTEND_URL || 'https://localhost:3000',
+        origin: process.env.FRONTEND_URL,
         credentials: true
     }
     app.use(cors(corsOption));
@@ -34,7 +34,7 @@ try {
 
     // Start backend server operation
     app.listen(process.env.APP_PORT, () => {
-        console.log(`Server listening on port ${process.env.SERVER_URL}${process.env.APP_PORT}`)
+        console.log(`Server listening on port ${process.env.SERVER_URL}:${process.env.APP_PORT}`)
     });
 
 } catch (err) {

@@ -20,9 +20,11 @@ export default defineConfig({
     },
   },
   server: {
+    host: true,
     port: parseInt(process.env.VITE_FRONTEND_PORT), 
   },
   preview: {
+    host: true,
     port: parseInt(process.env.VITE_FRONTEND_PORT)
   },
 })

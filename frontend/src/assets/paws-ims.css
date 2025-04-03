@@ -9,7 +9,7 @@ input {
     background-color: #FFCC4C;
     border: 5px solid #F8545C;
     border-radius: 25px;
-    max-inline-size: 264px;
+    inline-size: 264px;
 }
 
 button {

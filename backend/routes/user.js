@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
                     WHERE LOWER(USER_USERNAME) = LOWER(?);
                     `;
         resultQuery = await executeReadQuery(selectQuery.replace(/\s+/g, ' ').trim(), [username]);
-        if (!resultQuery) {
+        if (!resultQuery.length) {
             console.error(`Error: Cannot find ${username}. Failed to log the user in.`);
             res.status(404).json({ message: `Incorrect Credentials!` });
             return

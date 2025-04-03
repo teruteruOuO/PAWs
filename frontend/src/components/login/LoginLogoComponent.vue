@@ -29,9 +29,6 @@ onUnmounted(() => window.removeEventListener('resize', updateWidth));
 
 <style scoped>
 /* Phone Vertical */
-/* section {
-    background-color: purple;
-} */
 
 img {
     display: block;
@@ -49,8 +46,11 @@ h1 {
 }
 
 /* Phone Horizontal */
-/* @media screen and (min-width: 932px) {
-    
-} */
+@media screen and (min-width: 667px) and (max-height: 430px) {
+    img {
+        inline-size: 231px;
+        block-size: 174px;
+    }
+}
 </style>
 

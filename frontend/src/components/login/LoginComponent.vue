@@ -81,10 +81,6 @@ const loginUser = async (req, res) => {
 
 <style scoped>
 /* Phone Vertical */
-section {
-    margin-block-start: 20px;
-}
-
 section * {
     font-size: 2.5rem;
 }
@@ -104,15 +100,46 @@ ul > * {
     text-align: center;
 }
 
+li:nth-child(1) *, li:nth-child(3) * {
+    display: block; 
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+}
+
 li:nth-child(2) *, li:nth-child(4) * {
-    font-size: 1.5625rem;   
+    font-size: 1.5625rem; 
+    display: flex;
+    justify-content: center;     
 }
 
 li:nth-child(2), li:nth-child(4) {
-    margin-block-end: 10px;
+    margin-block-end: 20px;
 }
 
 input {
     text-align: center;
+}
+
+/* Phone Horizontal */
+@media screen and (min-width: 667px) and (max-height: 430px) {
+    li:nth-child(1) *, li:nth-child(3) * {
+        display: block; 
+        font-size: 1.875rem;
+    }
+
+    li:nth-child(2) *, li:nth-child(4) * {
+        font-size: 1.25rem;
+        
+    }
+
+    input {
+        text-align: center;
+        inline-size: 264px;
+        block-size: 55px;
+    }
+
+    input, button * {
+        font-size: 1.875rem;
+    }
 }
 </style>
