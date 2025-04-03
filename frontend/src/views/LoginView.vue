@@ -32,4 +32,26 @@ main {
         column-gap: 50px;
     }
 }
+
+/* Tablet */
+@media screen and (min-width: 768px) and (min-height: 600px) {
+    /* Flex parent */
+    main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 50px;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1366px) {
+    /* Flex parent */
+    main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 50px;
+    }
+}
 </style>

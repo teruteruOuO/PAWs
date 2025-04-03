@@ -66,7 +66,7 @@ const loginUser = async (req, res) => {
 
     } catch (err) {
         console.error(`An error occured in LoginComponent.vue`);
-        if (err.response.data.message) {
+        if (err.response) {
             console.error(err.response.data.message);
             feedback.message = err.response.data.message;
             feedback.success = false;
@@ -121,9 +121,8 @@ input {
 }
 
 /* Phone Horizontal */
-@media screen and (min-width: 667px) and (max-height: 430px) {
-    li:nth-child(1) *, li:nth-child(3) * {
-        display: block; 
+@media screen and (min-width: 667px) and (min-height: 430px) {
+    li:nth-child(1) *, li:nth-child(3) *, li:nth-child(5) * {
         font-size: 1.875rem;
     }
 
@@ -141,5 +140,131 @@ input {
     input, button * {
         font-size: 1.875rem;
     }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (min-height: 600px) {
+    li:nth-child(1) *, li:nth-child(3) *, li:nth-child(5) * {
+        font-size: 3.75rem;
+    }
+
+    li:nth-child(2) *, li:nth-child(4) * {
+        font-size: 2.5rem;
+        
+    }
+
+    li:nth-child(2), li:nth-child(4) {
+        margin-block-end: 40px;
+    }
+
+    input {
+        text-align: center;
+        border-radius: 50px;
+        inline-size: 439px;
+        block-size: 79px;
+    }
+    
+    button {
+        font-size: 3.75rem;
+        inline-size: 393px;
+        block-size: 79px;
+    }
+
+    input, button * {
+        font-size: 1.875rem;
+    }
+}
+
+@media screen and (min-width: 1366px) {
+    /* Grid parent */
+    ul {
+        display: grid; /* Switch from flex to grid */
+        grid-template-columns: repeat(2, 1fr); /* Customize as needed */
+        max-inline-size: 1600px;
+        grid-template-areas: 
+        "on on"
+        ".  tw"
+        "th th"
+        ".  fo"
+        "fi fi";
+    }
+
+    ul > li {
+        /* Reset potential flex styling from earlier */
+        display: block;
+        text-align: initial;
+        justify-content: initial;
+        align-items: initial;
+    }
+
+    /* Naming each children */
+    li:nth-child(1) {
+        grid-area: on
+    }
+
+    li:nth-child(2) {
+        grid-area: tw
+    }
+    
+    li:nth-child(3) {
+        grid-area: th
+    }
+
+    li:nth-child(4) {
+        grid-area: fo
+    }
+
+    li:nth-child(5) {
+        grid-area: fi
+    }
+
+    li:nth-child(1), li:nth-child(3) {
+        display: flex;
+        flex-direction: row;
+        column-gap: 200px;
+        justify-content: center;
+        align-content: center;
+    }
+
+
+    li:nth-child(1) *, li:nth-child(3) *, li:nth-child(5) * {
+        display: inline;
+        font-size: 4.6875rem;
+    }
+
+    li:nth-child(1) input, li:nth-child(3) input {
+        inline-size: 635px;
+        block-size: 100px;
+        font-size: 3.5rem;
+        text-align: left;
+    }
+
+    /* Center the button */
+    li:nth-child(5) {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    button {
+        display: block;
+        inline-size: 635px;
+        block-size: 100px;
+        font-size: 3.5rem;
+        text-align: center;
+        border-width: 10px;
+    }
+    /* Center button end */
+
+    li:nth-child(2), li:nth-child(4) {
+        margin-block-end: 40px; /* Reset margin if needed */
+    }
+
+    li:nth-child(2) *, li:nth-child(4) * {
+        display: block; /* override flex */
+        text-align: left;
+        justify-content: initial; /* optional reset */
+    }
+    
 }
 </style>

@@ -18,7 +18,7 @@ const updateWidth = () => {
 };
 
 // Computed property for visibility based on width range
-const isMobile = computed(() => windowWidth.value <= 1024);
+const isMobile = computed(() => windowWidth.value <= 1366);
 
 onMounted(() => {
     window.addEventListener('resize', updateWidth);
@@ -50,6 +50,47 @@ h1 {
     img {
         inline-size: 231px;
         block-size: 174px;
+    }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (min-height: 600px) {
+    section {
+        /* Flex parent */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        column-gap: 40px;
+    }
+
+    img {
+        inline-size: 325px;
+        block-size: 245px;
+    }
+
+    h1 {
+        font-size: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1366px) {
+    /* Flex parent */
+    section {
+        max-inline-size: 1366px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    img {
+        inline-size: 469px;
+        block-size: 353px;
     }
 }
 </style>
