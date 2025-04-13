@@ -14,10 +14,11 @@
                 <input type="password" name="password-login" id="password-login" v-model="userInputCredentials.password" required>
             </li>
             <li>
-                <RouterLink :to="{ name: 'password-recovery' }">Forgot Password?</RouterLink>
+                <p><RouterLink :to="{ name: 'password-recovery' }">Forgot Password?</RouterLink></p>
+                <p><RouterLink :to="{ name: 'signup' }">Sign Up</RouterLink></p>
             </li>
             <li>
-                <button type="submit" :class="{ 'button-loading': isLoadingLogin}">
+                <button type="submit" :disabled="isLoadingLogin" :class="{ 'button-loading': isLoadingLogin}">
                     <span v-if="!isLoadingLogin">Login</span>
                     <span v-else>Logging in...</span>
                 </button>
@@ -61,7 +62,8 @@ const loginUser = async (req, res) => {
         console.log(response.data.message);
 
         // Store the user's ID in the local storage and send them to the dashboard page
-        user.userID = response.data.userID;
+        user.userIdentity.id = response.data.userID;
+        user.userIdentity.role = response.data.role;
         router.push({ name: 'dashboard' });
 
     } catch (err) {
@@ -70,11 +72,13 @@ const loginUser = async (req, res) => {
             console.error(err.response.data.message);
             feedback.message = err.response.data.message;
             feedback.success = false;
+        } else {
+            console.error(err);
         }
-        console.error(err);
 
     } finally {
         isLoadingLogin.value = false;
+
     }
 }
 </script>

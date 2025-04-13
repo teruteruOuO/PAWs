@@ -2,11 +2,19 @@ import { ref, reactive, computed } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useUserStore = defineStore('user', () => {
-    const userID = ref('');
+    const userIdentity = reactive({
+        id: 0,
+        role: ''
+    });
+    const emailVerification = reactive({
+        forgot_password: '',
+        signup: ''
+    });
+
     const resetUserStore = () => {
-        userID.value = '';
-        localStorage.removeItem('user');
+        userIdentity.id = '';
+        userIdentity.role = '';
     }
 
-    return { userID, resetUserStore }
+    return { userIdentity, emailVerification, resetUserStore }
 }, { persist: { enabled: true } });

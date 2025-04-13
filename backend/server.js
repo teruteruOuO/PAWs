@@ -12,6 +12,7 @@ import './utilities/mute-console.js';
 
 // Import routes
 import user from './routes/user.js';
+import state from './routes/state.js';
 
 try {
     // Create an instance of an express application
@@ -31,6 +32,7 @@ try {
 
     // Setup middleware routes
     app.use('/api/user', user);
+    app.use('/api/state', state);
 
     // Start backend server operation
     app.listen(process.env.APP_PORT, () => {

@@ -16,6 +16,11 @@ const router = createRouter({
             component: () => import('../views/PasswordRecoveryView.vue')
         },
         {
+            path: '/signup',
+            name: 'signup',
+            component: () => import('../views/SignupView.vue')
+        },
+        {
             path: '/',
             name: 'dashboard',
             meta: { requiresAuth: true },
@@ -33,7 +38,7 @@ router.beforeEach(async (to, from, next) => {
     const isLoggedIn = await authorizeToken();
 
     // Redirect to home when accessing login or sign up pages when user is already logged in
-    if ((to.name === 'login' || to.name === 'password-recovery') && isLoggedIn) {
+    if ((to.name === 'login' || to.name === 'password-recovery' || to.name === 'signup') && isLoggedIn) {
         next({ name: 'dashboard' });
     }
 

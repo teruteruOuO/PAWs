@@ -20,7 +20,16 @@ button {
     inline-size: 264px;
 }
 
-.feedback {
+.button-loading {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.feedback.success {
+    color: pink;
+}
+
+.feedback.fail {
     color: white;
 }
 
