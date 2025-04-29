@@ -101,8 +101,4 @@ onBeforeRouteLeave(async (to, from, next) => {
 </script>
 
 <style scoped>
-main {
-    border: 1px solid salmon;
-    background-color: rgb(19, 129, 224);
-}
 </style>

@@ -44,7 +44,6 @@ try {
         });
     }
     
-
 } catch (err) {
     console.error(`Error: An error occured while starting the express server. Below is the error statement`);
     console.error(err);

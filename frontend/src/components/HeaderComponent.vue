@@ -9,25 +9,17 @@
 
 <style scoped>
 /* Phone Horizontal */
-@media screen and (min-width: 576px) {
-    header {
-        grid-template-areas: 
-        "h1 nav";
-    }
+@media screen and (min-width: 667px) and (min-height: 430px) {
+
 }
 
-/* Laptop */
-@media screen and (min-width: 768px) {
+/* Tablet */
+@media screen and (min-width: 768px) and (min-height: 600px) {
 
 }
 
 /* Desktop */
-@media screen and (min-width: 1024px) {
-
-}
-
-/* Large Desktop */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1366px) {
 
 }
 </style>
