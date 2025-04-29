@@ -35,9 +35,15 @@ try {
     app.use('/api/state', state);
 
     // Start backend server operation
-    app.listen(process.env.APP_PORT, () => {
-        console.log(`Server listening on port ${process.env.SERVER_URL}:${process.env.APP_PORT}`)
-    });
+    if (process.env.NODE_ENV === 'production') {
+        console.log(`${process.env.SERVER_URL}`);
+        
+    } else {
+        app.listen(process.env.APP_PORT, () => {
+            console.log(`Server listening on port ${process.env.SERVER_URL}:${process.env.APP_PORT}`)
+        });
+    }
+    
 
 } catch (err) {
     console.error(`Error: An error occured while starting the express server. Below is the error statement`);
